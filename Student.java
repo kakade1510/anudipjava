@@ -1,59 +1,34 @@
-//Create a class Student with 3 private data members:
+package com.hibertest.HiberTest.entitiesentities;
 
-package Collection.com;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data  // used for getter,setter
+@Entity  // used for create table as class name
 public class Student {
+	@Id     // used for Primary key
+	@GeneratedValue  // used for auto_increment
+	@Column(name="st_id") // used for change table name
+	private int sid;
+	
+	@Column(length=50) // used for length fix size
+	@NonNull           // used for not null
+	private String sname;
+	
+	@Column(length=10)
+    @NonNull
+	private String contact;
 	
 
-
-	private int id;
-	private String name;
-	private String contno;
-	
-	public Student() { 
-		super();
-	}
-	
-	public Student(int id, String name, String contno) {  
-		super();
-		this.id = id;
-		this.name = name;
-		this.contno = contno;
-	}
-
-	//generate getters and setter
-	public int getId() {  //get id
-		return id;
-	}
-
-	public void setId(int id) { 
-		this.id = id;
-	}
-
-	public String getName() { 
-		return name;
-	}
-
-	public void setName(String name) { 
-		this.name = name;
-	}
-
-	public String getContno() { 
-		return contno;
-	}
-
-	public void setContno(String contno) { 
-		this.contno = contno;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", contno=" + contno + "]";
-	}
-
-	
-	}
-	
-	
-
-
+}
